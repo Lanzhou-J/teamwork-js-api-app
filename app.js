@@ -60,6 +60,17 @@ Promise.all(promises).then((response)=> {
   console.log(chalk.yellow(`Successfully get author information of ${author.replace("_"," ")}! ✿ヽ(°▽°)ノ✿`))
   console.log('🎉🎉🎉🎉🎉🎉🎉🎉')
   console.log();
+  console.log("Do you want to see the books of the author?");
+  console.log(chalk.blue('yes/no'));
+  let seeBooks = readline.question("> ")
+  if(seeBooks === "yes"){
+      parseString(xml, function (err, result) {
+    console.log(result["GoodreadsResponse"]["author"][0].books[0].book);
+  });
+  }else{
+    console.log(chalk.yellow('See you next time!'));
+  }
+
 })
 
 
