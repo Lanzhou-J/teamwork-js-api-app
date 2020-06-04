@@ -67,6 +67,11 @@ Promise.all(promises).then((response)=> {
     parseString(xml, function (err, result) {
     console.log(result["GoodreadsResponse"]["author"][0].books[0].book);
   });
+    console.log();
+  console.log('🎉🎉🎉🎉🎉🎉🎉🎉')
+  console.log(chalk.yellow(`Successfully get books written by ${author.replace("_"," ")}! ✿ヽ(°▽°)ノ✿`))
+  console.log('🎉🎉🎉🎉🎉🎉🎉🎉')
+  console.log();
   }else{
     console.log(chalk.yellow('See you next time!'));
   }
