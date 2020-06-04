@@ -77,9 +77,3 @@ Promise.all(promises).then((response)=> {
   }
 
 })
-
-
-
-// console.log(xmldata);
-
-// getAuthor()
