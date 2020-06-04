@@ -19,6 +19,12 @@ console.log("Charles Dickens")
 console.log("Stefan Zweig")
 const author = readline.question("> ")
 
+var authorObj = {
+  Charles_Dickens:"239579.Charles_Dickens",
+  J_K_Rowling:"1077326.J_K_Rowling",
+  Stefan_Zweig:"25573.Stefan_Zweig"
+};
+
 const getAuthor = () => {
 return fetch("https://www.goodreads.com/author/show.xml?key=cfyfMOfygbaO23YVVBiA&id=1077326.J_K_Rowling").then(response => response.text()).then(data => data) 
 .catch(err => console.log(err));}
