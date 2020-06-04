@@ -15,16 +15,16 @@ console.log(
 console.log("Hi, which author do you want to check?")
 console.log("Please select from the options:")
 
-console.log(" - Charles Dickens")
-console.log(" - George Orwell")
-console.log(" - Haruki Murakami")
-console.log(" - Herman Melville")
-console.log(" - JK Rowling")
-console.log(" - Margaret Atwood")
-console.log(" - Margaret Mitchell")
-console.log(" - Mo Yan")
-console.log(" - Stefan Zweig")
-console.log(" - Virginia Woolf")
+console.log(chalk.blue(" - Charles Dickens"))
+console.log(chalk.blue(" - George Orwell"))
+console.log(chalk.blue(" - Haruki Murakami"))
+console.log(chalk.blue(" - Herman Melville"))
+console.log(chalk.blue(" - JK Rowling"))
+console.log(chalk.blue(" - Margaret Atwood"))
+console.log(chalk.blue(" - Margaret Mitchell"))
+console.log(chalk.blue(" - Mo Yan"))
+console.log(chalk.blue(" - Stefan Zweig"))
+console.log(chalk.blue(" - Virginia Woolf"))
 
 let author = readline.question("> ")
 author = author.replace(" ","_")
@@ -55,6 +55,11 @@ Promise.all(promises).then((response)=> {
   parseString(xml, function (err, result) {
     console.log(result["GoodreadsResponse"]["author"][0]);
   });
+  console.log();
+  console.log('🎉🎉🎉🎉🎉🎉🎉🎉')
+  console.log(chalk.yellow(`Successfully get author information of ${author.replace("_"," ")}! ✿ヽ(°▽°)ノ✿`))
+  console.log('🎉🎉🎉🎉🎉🎉🎉🎉')
+  console.log();
 })
 
 
