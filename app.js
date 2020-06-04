@@ -61,7 +61,7 @@ Promise.all(promises).then((response)=> {
   console.log('🎉🎉🎉🎉🎉🎉🎉🎉')
   console.log();
   console.log("Do you want to see the books of the author? (10 at most)");
-  console.log(chalk.blue('yes/no'));
+  console.log(chalk.blue(' - yes/no'));
   let seeBooks = readline.question("> ")
   if(seeBooks === "yes"){
     parseString(xml, function (err, result) {
