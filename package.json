@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "fast-xml-parser": "^3.17.3",
+    "jsdom": "^16.2.2",
+    "node-fetch": "^2.6.0",
+    "xml2js": "^0.4.23"
+  }
+}
