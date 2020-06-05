@@ -1,26 +1,5 @@
-const fetch = require('node-fetch');
-const readline = require('readline-sync');
-const { parseString } = require('xml2js');
-const clear = require('clear');
-const figlet = require('figlet');
-const chalk = require('chalk');
-const authorsFunc = require('./author');
-
-clear();
-console.log(
-  chalk.cyan(
-    figlet.textSync('Readapi', { horizontalLayout: 'full' }),
-  ),
-);
-console.log('Hi, what do you want to do?');
-console.log('Please select a number:');
-console.log(chalk.blue('1. See authors'));
-console.log(chalk.blue('2. See books'));
-
-let menu = readline.question('> ');
-
-if(menu==='1'){
-  console.log('Hi, which author do you want to check?');
+const authors = () => {
+console.log('Hi, which author do you want to check?');
 console.log('Please select from the options:');
 
 console.log(chalk.blue(' - Charles Dickens'));
@@ -85,5 +64,4 @@ Promise.all(promises).then((response) => {
 });
 }
 
-
-
+module.export = {authors}
