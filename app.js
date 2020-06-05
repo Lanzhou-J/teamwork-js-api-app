@@ -97,7 +97,7 @@ if (menu === '1') {
       console.log(chalk.yellow(`Successfully get author information of ${author.replace('_', ' ')}! ✿ヽ(°▽°)ノ✿`));
       console.log('🎉🎉🎉🎉🎉🎉🎉🎉');
       console.log();
-      console.log('Do you want to see a book recommendation (written by the author)?');
+      console.log(`Would you like a see a book written by this author?`);
       console.log(chalk.blue(' - yes/no'));
       const seeBooks = readline.question('> ');
       if (seeBooks === 'yes') {
@@ -133,8 +133,8 @@ fetch(`https://www.goodreads.com/search/index.xml?key=cfyfMOfygbaO23YVVBiA&q=${s
     // console.log(util.inspect(books, false, null, true));
     books.forEach(function(value, index) {
       console.log(chalk.yellow('----------------------------------'))
-      console.log(`Title: ${value.best_book[0].title[0]}`)
-      console.log(`Average rating: ${value.average_rating[0]}`)
+      console.log(`${chalk.cyan("Title:")} ${value.best_book[0].title[0]}`)
+      console.log(`${chalk.cyan("Average rating:")} ${value.average_rating[0]}`)
     });
   });
 })
