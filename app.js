@@ -135,6 +135,8 @@ fetch(`https://www.goodreads.com/search/index.xml?key=cfyfMOfygbaO23YVVBiA&q=${s
       console.log(chalk.yellow('----------------------------------'))
       console.log(`${chalk.cyan("Title:")} ${value.best_book[0].title[0]}`)
       console.log(`${chalk.cyan("Average rating:")} ${value.average_rating[0]}`)
+      console.log(`${chalk.cyan("Publication time:")} ${value.original_publication_month[0]["_"]}/${value.original_publication_year[0]["_"]}`)
+      console.log(`${chalk.cyan("Author:")} ${value.best_book[0].author[0].name[0]}`)
     });
   });
 })
