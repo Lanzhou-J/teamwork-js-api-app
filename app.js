@@ -4,6 +4,7 @@ const { parseString } = require('xml2js');
 const clear = require('clear');
 const figlet = require('figlet');
 const chalk = require('chalk');
+const util = require("util")
 // const authorsFunc = require('./author');
 
 clear();
@@ -15,7 +16,7 @@ console.log(
 console.log('Hi, what do you want to do?');
 console.log('Please select a number:');
 console.log(chalk.blue('1. See authors'));
-console.log(chalk.blue('2. See books'));
+console.log(chalk.blue('2. Search(authors/books/ISBN)'));
 
 let menu = readline.question('> ');
 
@@ -103,8 +104,21 @@ if (menu === '1') {
     console.log(error.message);
   }
 }else if(menu === '2'){
-  console.log('Searh for books!');
-  // break;
+  console.log("Enter your search query");
+const search = readline.question("> ")
+fetch(`https://www.goodreads.com/search/index.xml?key=cfyfMOfygbaO23YVVBiA&q=${search}`).then((response) => {
+  return response.text()
+}).then((data) => {
+  parseString(data, function (err, result) {
+    let books = result.GoodreadsResponse.search[0].results[0].work;
+    // console.log(util.inspect(books, false, null, true));
+    books.forEach(function(value, index) {
+      console.log(chalk.yellow('----------------------------------'))
+      console.log(`Title: ${value.best_book[0].title[0]}`)
+      console.log(`Average rating: ${value.average_rating[0]}`)
+    });
+  });
+})
 }else {
   console.log("I don't understand!")
 }
