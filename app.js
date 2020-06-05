@@ -81,7 +81,7 @@ if (menu === '1') {
         // console.log(popularAuthor)
           console.log(chalk.yellow('----------------------------------'))
         console.log(`${chalk.cyan("Name:")} ${popularAuthor.name[0]}`)
-        console.log(`${chalk.cyan("About:")} ${popularAuthor.about[0].replace(/(<br\s\/>)|(<i>)|(<\/i>)|(<p>)/g,"")}`)
+        console.log(`${chalk.cyan("About:")} ${popularAuthor.about[0].replace(/(<br\s\/>)|(<i>)|(<\/i>)|(<p>)|(<\/?b>)/g,"")}`)
         console.log(`${chalk.cyan("Works count:")} ${popularAuthor.works_count[0]}`)
         console.log(`${chalk.cyan("Gender:")} ${popularAuthor.gender[0]}`)
         if(popularAuthor.hometown !== undefined){
@@ -106,7 +106,7 @@ if (menu === '1') {
           randomElement = items[Math.floor(Math.random()*items.length)];
           console.log(chalk.yellow('----------------------------------'))
           console.log(`${chalk.cyan("Title:")} ${randomElement.title[0]}`)
-          console.log(`${chalk.cyan("Average rate:")} ${randomElement.title[0]}`)
+          console.log(`${chalk.cyan("Average rating:")} ${randomElement.average_rating[0]}`)
           console.log(`${chalk.cyan("Description:")} ${randomElement.description[0].replace(/(<br\s\/>)|(<i>)|(<\/i>)|(<p>)/g,"")}`)
         });
 
