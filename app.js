@@ -15,7 +15,7 @@ console.log(
 );
 console.log('Hi, what do you want to do?');
 console.log('Please select a number:');
-console.log(chalk.blue('1. See authors'));
+console.log(chalk.blue('1. See popular authors'));
 console.log(chalk.blue('2. Search(authors/books/ISBN)'));
 
 let menu = readline.question('> ');
@@ -77,23 +77,42 @@ if (menu === '1') {
     Promise.all(promises).then((response) => {
       const xml = response[0];
       parseString(xml, (err, result) => {
-        console.log(result.GoodreadsResponse.author[0]);
+        popularAuthor = result.GoodreadsResponse.author[0];
+        // console.log(popularAuthor)
+          console.log(chalk.yellow('----------------------------------'))
+        console.log(`${chalk.cyan("Name:")} ${popularAuthor.name[0]}`)
+        console.log(`${chalk.cyan("About:")} ${popularAuthor.about[0].replace(/(<br\s\/>)|(<i>)|(<\/i>)|(<p>)/g,"")}`)
+        console.log(`${chalk.cyan("Works count:")} ${popularAuthor.works_count[0]}`)
+        console.log(`${chalk.cyan("Gender:")} ${popularAuthor.gender[0]}`)
+        if(popularAuthor.hometown !== undefined){
+        console.log(`${chalk.cyan("Hometown:")} ${popularAuthor.hometown[0]}`)}
+        if(popularAuthor.born_at !== undefined){
+        console.log(`${chalk.cyan("Born at:")} ${popularAuthor.born_at[0]}`)}
+        if(popularAuthor.die_at !== undefined){
+        console.log(`${chalk.cyan("Die at:")} ${popularAuthor.die_at[0]}`)}
+        
       });
       console.log();
       console.log('🎉🎉🎉🎉🎉🎉🎉🎉');
       console.log(chalk.yellow(`Successfully get author information of ${author.replace('_', ' ')}! ✿ヽ(°▽°)ノ✿`));
       console.log('🎉🎉🎉🎉🎉🎉🎉🎉');
       console.log();
-      console.log('Do you want to see the books of the author? (10 at most)');
+      console.log('Do you want to see a book recommendation (written by the author)?');
       console.log(chalk.blue(' - yes/no'));
       const seeBooks = readline.question('> ');
       if (seeBooks === 'yes') {
         parseString(xml, (err, result) => {
-          console.log(result.GoodreadsResponse.author[0].books[0].book);
+          items = result.GoodreadsResponse.author[0].books[0].book;
+          randomElement = items[Math.floor(Math.random()*items.length)];
+          console.log(chalk.yellow('----------------------------------'))
+          console.log(`${chalk.cyan("Title:")} ${randomElement.title[0]}`)
+          console.log(`${chalk.cyan("Average rate:")} ${randomElement.title[0]}`)
+          console.log(`${chalk.cyan("Description:")} ${randomElement.description[0].replace(/(<br\s\/>)|(<i>)|(<\/i>)|(<p>)/g,"")}`)
         });
+
         console.log();
         console.log('🎉🎉🎉🎉🎉🎉🎉🎉');
-        console.log(chalk.yellow(`Successfully get books written by ${author.replace('_', ' ')}! ✿ヽ(°▽°)ノ✿`));
+        console.log(chalk.yellow(`Successfully get a book written by ${author.replace('_', ' ')}! ✿ヽ(°▽°)ノ✿`));
         console.log('🎉🎉🎉🎉🎉🎉🎉🎉');
         console.log();
       } else {
