@@ -17,8 +17,9 @@ console.log('Please select a number:');
 console.log(chalk.blue('1. See authors'));
 console.log(chalk.blue('2. See books'));
 
-const menu = readline.question('> ');
+let menu = readline.question('> ');
 
+// while (menu !== 'exit'){
 if (menu === '1') {
   console.log('Hi, which author do you want to check?');
   console.log('Please select from the options:');
@@ -33,7 +34,6 @@ if (menu === '1') {
   console.log(chalk.blue(' - Mo Yan'));
   console.log(chalk.blue(' - Stefan Zweig'));
   console.log(chalk.blue(' - Virginia Woolf'));
-
 
   function getUserInput() {
     const input = readline.question('> ');
@@ -102,4 +102,10 @@ if (menu === '1') {
   } catch (error) {
     console.log(error.message);
   }
+}else if(menu === '2'){
+  console.log('Searh for books!');
+  // break;
+}else {
+  console.log("I don't understand!")
 }
+// }
