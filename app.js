@@ -23,7 +23,7 @@ let menu = readline.question('> ');
 // while (menu !== 'exit'){
 if (menu === '1') {
   console.log('Hi, which author do you want to check?');
-  console.log('Please select from the options:');
+  console.log('Please type an author name below:');
 
   console.log(chalk.blue(' - Charles Dickens'));
   console.log(chalk.blue(' - George Orwell'));
